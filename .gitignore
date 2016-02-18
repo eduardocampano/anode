@@ -1,0 +1,19 @@
+# Dependency directory
+node_modules
+
+/nbproject/*
+.DS_Store
+.dropbox
+# Logs
+logs
+*.log
+
+coverage
+
+.idea/*
+
+# build output
+lib
+
+# temp files
+*.tmp
