@@ -1,7 +1,7 @@
 'use strict';
 
-var express = require('express');
-var SampleService = require('./services/sample');
+import express from 'express';
+import EchoService from './services/echo';
 
 export default class ExpressApplication {
 
@@ -27,23 +27,27 @@ export default class ExpressApplication {
   setupRoutes() {
     let wrap = fn => (...args) => fn(...args).catch(args[2]);
 
-    this.app.get('/{id}', wrap(async (req, res) => {
-      if (req.params.id === 'error') {
+    this.app.get('/greet/:name', wrap(async (req, res) => {
+      if (req.params.name === 'error') {
         throw new BadRequestError('sample error');
       }
-      var sampleService = new SampleService();
-      var response = await sampleService.run();
+      var echoService = new EchoService();
+      var response = await echoService.greet(req.params.name);
       res.send(response);
     }));
 
+    this.app.get('/', wrap(async (req, res) => {
+      res.send('Hi, I\'m just a server');
+    }));
   }
 
   setupServer() {
-    this.server = this.app.listen(3006, () => {
+    var server = this.app.listen(3006, () => {
       var host = server.address().address;
       var port = server.address().port;
       console.log('server listening at http://%s:%s', host, port);
     });
+    this.server = server;
   }
 
 }

@@ -1,5 +1,5 @@
 'use strict';
 
-var App = require('./application');
-var appInstance = new App(process.argv);
+import Application from './application';
+var appInstance = new Application(process.argv);
 appInstance.run();

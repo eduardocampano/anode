@@ -1,6 +1,6 @@
 'use strict';
 
-var ExpressApplication = require('./express-application');
+import ExpressApplication from './express-application';
 
 export default class Application {
   constructor(config) {
