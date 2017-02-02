@@ -3,7 +3,7 @@
 import ExpressApplication from './express-application';
 
 export default class Application {
-  constructor(config) {
+  constructor(process) {
     this.expressApplication = new ExpressApplication();
   }
 

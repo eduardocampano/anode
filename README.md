@@ -1,1 +1,1 @@
-Just playing with node 5, ES7 async/await and Babel
+Just playing with node 7, ES7 async/await

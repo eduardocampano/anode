@@ -4,15 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "go": "node ./lib/index.js",
-    "start": "npm run build && npm run go",
+    "start": "node --harmony-async-await index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.5.1",
-    "babel-preset-es2016-node5": "^1.1.2"
   }
 }
